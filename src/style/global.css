@@ -5,7 +5,7 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Nunito', sans-serif;
     user-select: none;
 }
 
@@ -226,7 +226,7 @@ main .data span {
 
 .weekDay span:first-child {
     font-size: 10rem;
-    font-weight: bold;
+    font-weight: 500;
     text-transform: capitalize;
 }
 
