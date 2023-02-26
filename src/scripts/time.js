@@ -7,8 +7,16 @@
  * 
  */
 
-function showTime(isHours, isMinutes) {
+const periodOfday = {
+    morning: "manhã",
+    afternoon: "tarde",
+    night: "noite",
+    dawn: "madrugada"
+}
+let setPeriodOfday = "";
 
+function showTime(isHours, isMinutes) {
+    
     const today = new Date();
     isHours = today.getHours();
     isMinutes = today.getMinutes();
@@ -30,8 +38,14 @@ function showTime(isHours, isMinutes) {
      * @param {Interger} minutes 
      * @returns 
      */
+    
     const formatHourAndMinute = (hours, minutes) => {
-        const isAmOrPm = isHours >= 12 && isMinutes >= 0 ? "pm" : "am";
+        let isAmOrPm = isHours >= 12 && isMinutes >= 0 ? "pm" : "am";
+
+        if (localStorage.getItem("isPeriodOfDayActived") === "true") {
+            isAmOrPm = setPeriodOfday;
+        }
+
         hours = convert24HrsTo12Hrs();
         hours = hours < 10 ? `0${hours}` : hours;
         minutes = isMinutes < 10 ? `0${isMinutes}` : isMinutes;
@@ -61,18 +75,28 @@ function showTime(isHours, isMinutes) {
         if ((isHours >= 6 && isMinutes >= 0) && (isHours <= 11 && isMinutes <= 59)) {
             icon.innerHTML = '<i class="fa fa-cloud-sun" style="color:#fff8b9"></i>';
             wellcome.textContent = "Bom dia";
+            return setPeriodOfday = `da ${periodOfday.morning}`;
         }
 
         // show afternoon Icon
         if (isHours >= 12 && isHours < 18) {
             icon.innerHTML = '<i class="fa fa-sun" style="color:#ffeb3b"></i>';
-            wellcome.textContent = "Boa tarde";
+            wellcome.textContent = `Boa ${periodOfday.afternoon}`;
+            return setPeriodOfday = `da ${periodOfday.afternoon}`;
         }
 
         // show night Icon
-        if ((isHours >= 18 && isMinutes >= 0) || (isHours <= 5 && isMinutes <= 59)) {
+        if ((isHours >= 18 && isMinutes >= 0) && (isHours <= 23 && isMinutes <= 59)) {
+            icon.innerHTML = '<i class="fa-solid fa-cloud-moon" style="color:#fff5a1"></i>';
+            wellcome.textContent = `Boa ${periodOfday.night}`;
+            return setPeriodOfday = `da ${periodOfday.night}`;
+        }
+
+        // show dawn Icon        
+        if ((isHours >= 0 && isMinutes >= 0) && (isHours <= 5 && isMinutes <= 59)) {
             icon.innerHTML = '<i class="fa fa-moon" style="color:#fff5a1"></i>';
-            wellcome.textContent = "Boa noite";
+            wellcome.textContent = `É ${periodOfday.dawn}`;
+            return setPeriodOfday = `da ${periodOfday.dawn}`;
         }
     }
     shiftDayAndNightIcon();
