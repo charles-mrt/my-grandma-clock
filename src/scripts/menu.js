@@ -88,7 +88,7 @@ function openAndCloseMenu(isMenuOpen) {
  */
 function changeAmPmToDayCycles(periodOfDayActived) {
 
-    const periodOfdayButton = document.querySelector(".timeConfig");
+    const periodOfdayButton = document.querySelector(".setTheDayPeriod");
     localStorage.setItem("isPeriodOfDayActived", true);
 
     periodOfdayButton.addEventListener("click", () => {
