@@ -40,13 +40,13 @@ function getMenuColor() {
     menuColors.forEach((menuColor) => {
 
         menuColor.addEventListener("click", () => {
-            
+
             const colors = menuColor.style.background;
 
             localStorage.setItem("colorActived", colors);
             document.documentElement.style.setProperty(
                 "--main-color", localStorage.getItem("colorActived")
-                );
+            );
 
         });
     });
@@ -57,7 +57,7 @@ function getMenuColor() {
  * Handle with open and close menu
  * @param {Boolean} isMenuOpen 
  */
-export function openAndCloseMenu(isMenuOpen) {
+function openAndCloseMenu(isMenuOpen) {
     const menuButton = document.querySelector(".menuIcon");
 
     menuButton.addEventListener("click", () => {
@@ -81,3 +81,26 @@ export function openAndCloseMenu(isMenuOpen) {
     });
 
 } openAndCloseMenu()
+
+/**
+ * deals with the button responsible for the period of the day
+ * @param {Boolean} periodOfDayActived 
+ */
+function changeAmPmToDayCycles(periodOfDayActived) {
+
+    const periodOfdayButton = document.querySelector(".timeConfig");
+    localStorage.setItem("isPeriodOfDayActived", true);
+
+    periodOfdayButton.addEventListener("click", () => {
+        if (!periodOfDayActived) {
+            periodOfDayActived = true;
+            periodOfdayButton.innerHTML = '<i class="fa-solid fa-hourglass-end"></i>';
+            localStorage.setItem("isPeriodOfDayActived", false);
+        } else {
+            periodOfDayActived = false;
+            periodOfdayButton.innerHTML = '<i class="fa-regular fa-hourglass"></i>';
+           localStorage.setItem("isPeriodOfDayActived", true);
+        }
+
+    });
+} changeAmPmToDayCycles();
