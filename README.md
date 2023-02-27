@@ -41,7 +41,7 @@ In this case, we keep a smartphone connected 24 hours a day in the app and turne
 
 <a id="user-content--testApp" class="anchor" aria-hidden="true" href="#-testApp"></a>
 ## 💻 test App
-To test the project you can access through  [DESSE LINK](https://charles-mrt.github.io/my-grandma-clock/)
+To test the project you can access through  [THIS LINK](https://charles-mrt.github.io/my-grandma-clock/)
 
 
 <a id="user-content--memo-license" class="anchor" aria-hidden="true" href="#-memo-license"></a>
