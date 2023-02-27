@@ -18,7 +18,7 @@ Digital wall clock for people with difficulty memorizing.
 <br>
 
 <p align="center">
-  <img alt="" src=".github/preview.png" width="70%">
+  <img alt="" src=".github/raw/preview.png" width="70%">
 </p>
 
 <a id="user-content--technologies" class="anchor" aria-hidden="true" href="#-technologies"></a>
