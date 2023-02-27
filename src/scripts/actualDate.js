@@ -65,7 +65,7 @@ function showActualDate(isYear, isMonth, isDay, isDayOfMonth) {
     const setIsMonth = isMonth < 10 ? `0${isMonth + 1}` : isMonth + 1;
     
     yearDate.textContent = `${setDayOfMonth}/${setIsMonth}/${isYear}`;
-    weekDay.innerHTML = isDay > 0 && isDay <= 5 ? `${dayOfWeek} <span> - feira</span>` : dayOfWeek;
+     weekDay.innerHTML = isDay > 0 && isDay <= 5 ? `${dayOfWeek}<span>- feira</span>` : dayOfWeek;
     
 } showActualDate();
 
