@@ -202,8 +202,6 @@ header #menu ul li input[type="radio"]:checked {
     box-shadow: 0px 0px 10px 2px var(--main-color);
 }
 
-
-
 #app main {
     color: var(--main-color);
     height: 90%;
@@ -213,25 +211,21 @@ header #menu ul li input[type="radio"]:checked {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1.5rem;
 }
 
 main .data {
-    font-size: 3rem;
-    margin-right: 2.5rem;
-}
-
-main .data span {
-    margin-right: 1rem;
+    font-size: 2.5rem;
 }
 
 .weekDay span:first-child {
-    font-size: 10rem;
+    font-size: 9rem;
     font-weight: 500;
     text-transform: capitalize;
 }
 
 .weekDay span:last-child {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 #app footer {
