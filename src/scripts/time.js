@@ -1,3 +1,5 @@
+import { showActualDate } from "./actualDate.js";
+
 
 /**
  * @ShowTime function handle with Real Time to be shown on device.
@@ -15,8 +17,10 @@ const periodOfday = {
 }
 let setPeriodOfday = "";
 
+const updateDate = () => showActualDate();
+
 function showTime(isHours, isMinutes) {
-    
+
     const today = new Date();
     isHours = today.getHours();
     isMinutes = today.getMinutes();
@@ -38,7 +42,7 @@ function showTime(isHours, isMinutes) {
      * @param {Interger} minutes 
      * @returns 
      */
-    
+
     const formatHourAndMinute = (hours, minutes) => {
         let isAmOrPm = isHours >= 12 && isMinutes >= 0 ? "pm" : "am";
 
@@ -61,6 +65,13 @@ function showTime(isHours, isMinutes) {
         hour.innerHTML = formatHourAndMinute();
     }
     renderHour();
+
+    const clock = {
+        itsMorningTime: 6,
+        itsAfternoonTime: 6,
+        itsNightTime: 6,
+        itsDawnTime: 6,
+    }
 
     /**
      * handle with icons and text to be show in three cycles of the day
@@ -92,18 +103,25 @@ function showTime(isHours, isMinutes) {
             return setPeriodOfday = `da ${periodOfday.night}`;
         }
 
-        // show dawn Icon        
+        // show dawn Icon    
+
         if ((isHours >= 0 && isMinutes >= 0) && (isHours <= 5 && isMinutes <= 59)) {
             icon.innerHTML = '<i class="fa fa-moon" style="color:#fff5a1"></i>';
             wellcome.textContent = `É ${periodOfday.dawn}`;
             return setPeriodOfday = `da ${periodOfday.dawn}`;
+
+        }
+
+        /**
+        * update actual date 
+        */
+        if (isHours === 0 && isMinutes === 0) {
+             updateDate();
         }
     }
+
     shiftDayAndNightIcon();
 
+
 } setInterval(showTime, 1000);
-
-
-
-
 
