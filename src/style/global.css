@@ -280,5 +280,6 @@ footer .hour span {
 
     footer .hour {
         font-size: 5rem;
+        text-align: center;
     }
 }
