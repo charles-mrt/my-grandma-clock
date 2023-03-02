@@ -8,10 +8,10 @@
  * @param isDayOfMonth  Gets the year using Universal Coordinated Time (UTC).
  */
 
-function showActualDate(isYear, isMonth, isDay, isDayOfMonth) {
+export function showActualDate(isYear, isMonth, isDay, isDayOfMonth) {
     const yearDate = document.querySelector(".yearDate");
     const weekDay = document.querySelector(".weekDay span:first-child");
-    
+
     const today = new Date();
 
     isYear = today.getFullYear();
@@ -63,10 +63,10 @@ function showActualDate(isYear, isMonth, isDay, isDayOfMonth) {
 
     const setDayOfMonth = isDayOfMonth < 10 ? `0${isDayOfMonth}` : isDayOfMonth;
     const setIsMonth = isMonth < 10 ? `0${isMonth + 1}` : isMonth + 1;
-    
+
     yearDate.textContent = `${setDayOfMonth}/${setIsMonth}/${isYear}`;
-     weekDay.innerHTML = isDay > 0 && isDay <= 5 ? `${dayOfWeek}<span> - feira</span>` : dayOfWeek;
-    
+    weekDay.innerHTML = isDay > 0 && isDay <= 5 ? `${dayOfWeek}<span> - feira</span>` : dayOfWeek;
+
 } showActualDate();
 
 
