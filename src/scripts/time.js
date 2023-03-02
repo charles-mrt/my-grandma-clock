@@ -77,8 +77,7 @@ function showTime(isHours, isMinutes) {
      * handle with icons and text to be show in three cycles of the day
      *  (morning - afternoon - night)
      */
-    const shiftDayAndNightIcon = () => {
-
+    const shiftDayAndNightIcon = () => {        
         const icon = document.querySelector(".icon");
         const wellcome = document.querySelector(".wellcome");
 
@@ -94,6 +93,7 @@ function showTime(isHours, isMinutes) {
             icon.innerHTML = '<i class="fa fa-sun" style="color:#ffeb3b"></i>';
             wellcome.textContent = `Boa ${periodOfday.afternoon}`;
             return setPeriodOfday = `da ${periodOfday.afternoon}`;
+            
         }
 
         // show night Icon
@@ -106,20 +106,13 @@ function showTime(isHours, isMinutes) {
         // show dawn Icon    
 
         if ((isHours >= 0 && isMinutes >= 0) && (isHours <= 5 && isMinutes <= 59)) {
+            updateDate();
             icon.innerHTML = '<i class="fa fa-moon" style="color:#fff5a1"></i>';
             wellcome.textContent = `É ${periodOfday.dawn}`;
             return setPeriodOfday = `da ${periodOfday.dawn}`;
-
         }
-
-        /**
-        * update actual date 
-        */
-        if (isHours === 0 && isMinutes === 0) {
-             updateDate();
-        }
-    }
-
+    }  
+ 
     shiftDayAndNightIcon();
 
 
